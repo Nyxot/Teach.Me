@@ -4,7 +4,8 @@ import {
   NavController, 
   LoadingController, 
   Loading, 
-  AlertController } from 'ionic-angular';
+  AlertController,
+  MenuController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { HomePage } from '../home/home';
@@ -26,12 +27,15 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController, public authData: AuthProvider, 
     public formBuilder: FormBuilder, public alertCtrl: AlertController,
-    public loadingCtrl: LoadingController, public afDatabase: AngularFireDatabase, public afAuth: AngularFireAuth) {
+    public loadingCtrl: LoadingController, public afDatabase: AngularFireDatabase, public afAuth: AngularFireAuth,
+    public menuCtrl: MenuController) {
 
       this.loginForm = formBuilder.group({
         email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
         password: ['', Validators.compose([Validators.minLength(6), Validators.required])]
       });
+
+      this.menuCtrl.enable(false, 'menu');
   }
 
   loginUser(){

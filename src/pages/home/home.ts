@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, MenuController } from 'ionic-angular';
 
 import { AuthProvider } from '../../providers/auth/auth';
 import { LoginPage } from '../../pages/login/login';
@@ -16,11 +16,13 @@ export class HomePage {
   items: FirebaseListObservable<any[]>;
 
   constructor(public navCtrl: NavController, public afAuthProvider: AuthProvider,
-  public afDatabase: AngularFireDatabase, public afAuth: AngularFireAuth) {
+  public afDatabase: AngularFireDatabase, public afAuth: AngularFireAuth, public menuCtrl: MenuController) {
 
     afAuth.authState.subscribe(user => {
       this.items = afDatabase.list(`users/${user.uid}`);
     });
+
+    this.menuCtrl.enable(true, 'menu');
 
   }
 
