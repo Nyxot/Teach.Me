@@ -1,0 +1,18 @@
+<ion-menu [content]="content">
+    <ion-header>
+      <div class="sideProfileImage">
+        <!--<img src="assets/images/img.jpg">-->
+        <h3>Mr Jason</h3>
+      </div>
+    </ion-header>
+    <ion-content>
+      <ion-list class="mainList">
+        <button ion-item no-lines *ngFor="let page of pages" (click)="openPage(page)" menuClose>
+          <ion-icon name="{{ page.icon }}" item-left></ion-icon>
+          {{ page.name }}
+        </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  
+  <ion-nav [root]="rootPage" #content></ion-nav>
