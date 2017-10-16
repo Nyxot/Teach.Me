@@ -22,6 +22,12 @@ export class SignupPage {
   public signupForm:FormGroup;
   public loading:Loading;
 
+  user = {
+    username: "",
+    name: "",
+    lastname: ""
+  }
+
   constructor(public nav: NavController, public authData: AuthProvider, 
     public formBuilder: FormBuilder, public loadingCtrl: LoadingController, 
     public alertCtrl: AlertController, public afDatabase: AngularFireDatabase, public afAuth: AngularFireAuth) {
@@ -44,7 +50,7 @@ export class SignupPage {
     } else {
       this.authData.signupUser(this.signupForm.value.email, this.signupForm.value.password).then(() => {
         this.afAuth.authState.subscribe(user =>{
-          this.afDatabase.object(`users/${user.uid}`).set('');
+          this.afDatabase.object(`users/${user.uid}`).set(this.user);
         });
         this.nav.setRoot(LoginPage);
       }, (error) => {

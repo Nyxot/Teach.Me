@@ -11,9 +11,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HomePage } from '../home/home';
 import { AuthProvider } from '../../providers/auth/auth';
 import { EmailValidator } from '../../validators/email';
+import { UserinfoPage } from '../userinfo/userinfo'
 
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
+
+import firebase from 'firebase/app';
 
 @IonicPage()
 @Component({
@@ -45,22 +48,16 @@ export class LoginPage {
       this.authData.loginUser(this.loginForm.value.email, this.loginForm.value.password)
       .then( authData => {
 
-
-        this.afAuth.authState.subscribe(user =>{
-          console.log(user.uid);
-          console.log(this.afDatabase.object(`users/${user.uid}`));
-          console.log(this.afDatabase.list(`users/${user.uid}`));
-          console.log(this.afDatabase.app.database.toString);
-          console.log(this.afDatabase.database.ref(`users/`+user.displayName));
-          console.log(this.afDatabase.database.ref(`users/`+user.uid));
-          console.log(this.afDatabase.database.ref('users'));
-
-          if(this.afDatabase.list(`users/${user.uid}`)){}
-
-          this.navCtrl.setRoot(HomePage);
+        this.afAuth.authState.subscribe(user => {
+          firebase.database().ref(`users/${user.uid}/name`).on('value', snapshot=> {
+            if(snapshot.val() == ""){
+              this.navCtrl.setRoot(UserinfoPage);
+            } else {
+              this.navCtrl.setRoot(HomePage);
+            }
+          })
         });
 
-        
       }, error => {
         this.loading.dismiss().then( () => {
           let alert = this.alertCtrl.create({
