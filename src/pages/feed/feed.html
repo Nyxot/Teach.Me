@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>feed</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="buttons">
+    <button class="log" ion-button round full (click)="logIn()">
+      Log In
+    </button>
+    <button class="sign" ion-button round full (click)="createAccount()">
+      Sign Up
+    </button>
+  </div> <br>
+  <div class="cards">
+    <ion-card *ngFor="let tutor of tutors">
+      <!-- <img src="img/nin-live.png"/> -->
+      <h3>IMG</h3>
+      <ion-card-content>
+        <ion-card-title>
+          {{ tutor.tName }}
+        </ion-card-title>
+        <p>
+          The most popular industrial group ever, and largely
+          responsible for bringing the music to a mass audience.
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

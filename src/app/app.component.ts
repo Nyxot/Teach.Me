@@ -6,10 +6,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ProfilePage } from '../pages/profile/profile';
 import { AuthProvider } from '../providers/auth/auth';
-import { LoginPage } from '../pages/login/login';
+//import { LoginPage } from '../pages/login/login';
 
 import { AngularFireAuth } from 'angularfire2/auth';
-import firebase from 'firebase/app';
+//import firebase from 'firebase/app';
 
 @Component({
   templateUrl: 'app.html'
@@ -25,6 +25,8 @@ export class MyApp {
     username: ""
   }
 
+  uName = "";
+
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, afAuth: AngularFireAuth,
     public afAuthProvider: AuthProvider) {
     const authObserver = afAuth.authState.subscribe(user => {
@@ -32,16 +34,18 @@ export class MyApp {
         this.rootPage = HomePage;
         authObserver.unsubscribe();
       } else {
-        this.rootPage = 'LoginPage';
+        this.rootPage = 'FeedPage';
         authObserver.unsubscribe();
       }
 
-      firebase.database().ref(`users/${user.uid}`).on('value', snapshot => {
+      /*firebase.database().ref(`users/${user.uid}`).on('value', snapshot => {
         console.log(snapshot.val().username);
         this.userinfo.username = "@" + snapshot.val().username;
         this.userinfo.name = snapshot.val().name;
         this.userinfo.lastname = snapshot.val().lastname;
-      });
+
+        this.uName = "@" + snapshot.val().username;
+      });*/
 
     });
 
@@ -62,7 +66,7 @@ export class MyApp {
 
   logoutUser(){
     this.afAuthProvider.logoutUser();
-    this.nav.setRoot(LoginPage);
+    this.nav.setRoot('FeedPage');
   }
 
 }

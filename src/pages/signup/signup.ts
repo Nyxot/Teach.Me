@@ -52,7 +52,7 @@ export class SignupPage {
         this.afAuth.authState.subscribe(user =>{
           this.afDatabase.object(`users/${user.uid}`).set(this.user);
         });
-        this.nav.setRoot(LoginPage);
+        this.nav.setRoot('LoginPage');
       }, (error) => {
         this.loading.dismiss().then( () => {
           var errorMessage: string = error.message;

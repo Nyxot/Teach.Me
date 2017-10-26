@@ -1,8 +1,17 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>profile</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <h3>Im working on it :)</h3>
+  <div class="profileImg">
+    IMG
+  </div>
+  <div class="profileContent">
+    <h3>{{ userinfo.username }}</h3>
+    <h6>{{ userinfo.name }} {{ userinfo.lastname }}</h6>
+  </div>
+  <button class="removeBtn" ion-button block color="danger" (click)="deleteAccount()">
+    LEAVE 4EVER
+  </button>
 </ion-content>
