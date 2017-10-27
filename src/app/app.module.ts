@@ -19,7 +19,7 @@ const firebaseConfig = {
   authDomain: "teachme-3167c.firebaseapp.com",
   databaseURL: "https://teachme-3167c.firebaseio.com",
   projectId: "teachme-3167c",
-  storageBucket: "",
+  storageBucket: "teachme-3167c.appspot.com",
   messagingSenderId: "574506350680"
 };
 

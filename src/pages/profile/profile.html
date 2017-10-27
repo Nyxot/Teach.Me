@@ -4,9 +4,24 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
+
   <div class="profileImg">
-    IMG
+    <button type="button" (click)="selectPhoto()">
+        <img class="img-responsive" src="{{ myPhotoURL }}" />
+    </button>
   </div>
+
+  <!--
+  <div class="profileImg">
+    <button ion-button color="secondary" type="button" full round large (click)="selectPhoto()">
+      <ion-icon name="md-image"></ion-icon>
+    </button>
+    <ion-item>
+      <img class="img-responsive" src="{{ myPhotoURL }}" />
+    </ion-item>
+  </div>
+  -->
+
   <div class="profileContent">
     <h3>{{ userinfo.username }}</h3>
     <h6>{{ userinfo.name }} {{ userinfo.lastname }}</h6>
