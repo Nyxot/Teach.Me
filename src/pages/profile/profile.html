@@ -3,30 +3,46 @@
     <ion-title>profile</ion-title>
   </ion-navbar>
 </ion-header>
+
 <ion-content padding>
 
   <div class="profileImg">
-    <button type="button" (click)="selectPhoto()">
-        <img class="img-responsive" src="{{ myPhotoURL }}" />
-    </button>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <img class="img-responsive" src="{{ myPhotoURL }}" />
+        </ion-col>
+        <ion-col>
+          <button ion-button block type="button" (click)="selectPhoto()">
+            upload
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
-
-  <!--
-  <div class="profileImg">
-    <button ion-button color="secondary" type="button" full round large (click)="selectPhoto()">
-      <ion-icon name="md-image"></ion-icon>
-    </button>
-    <ion-item>
-      <img class="img-responsive" src="{{ myPhotoURL }}" />
-    </ion-item>
-  </div>
-  -->
 
   <div class="profileContent">
-    <h3>{{ userinfo.username }}</h3>
-    <h6>{{ userinfo.name }} {{ userinfo.lastname }}</h6>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h3>{{ userinfo.username }}</h3>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <h6>{{ userinfo.name }} {{ userinfo.lastname }}</h6>
+        </ion-col>
+        <ion-col>
+          <h6>{{ userinfo.email }}</h6>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <button class="removeBtn" ion-button block color="danger" (click)="deleteAccount()">
+            LEAVE 4EVER
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
-  <button class="removeBtn" ion-button block color="danger" (click)="deleteAccount()">
-    LEAVE 4EVER
-  </button>
 </ion-content>

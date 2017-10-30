@@ -1,6 +1,24 @@
 page-profile {
+
   .profileImg {
-    
+
+    background: #F9FBE7;
+    padding: 3%;
+
+    img {
+      height: 130px;
+      width: 130px;
+      border: 5px solid gray;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      border-radius: 50%;
+      background-size: 100% auto;
+    }
+
+    button {
+      margin-top: 30%;
+    }
+
   }
 
   .profileContent {
@@ -9,7 +27,7 @@ page-profile {
   }
 
   .removeBtn {
-    margin-top: 30%;
+    //margin-top: 30%;
   }
 
 }

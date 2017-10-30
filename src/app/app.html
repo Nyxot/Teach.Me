@@ -5,7 +5,7 @@
       <h3>{{ uName }}</h3>
     </div>
   </ion-header>
-  <ion-content>
+  <ion-content class="sidemenu">
     <ion-list class="mainList">
       <button ion-item no-lines *ngFor="let page of pages" (click)="openPage(page)" menuClose>
         <ion-icon name="{{ page.icon }}" item-left></ion-icon>

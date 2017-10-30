@@ -15,7 +15,8 @@ export class ProfilePage {
   userinfo = {
     name: "",
     lastname: "",
-    username: ""
+    username: "",
+    email: ""
   }
 
   user = firebase.auth().currentUser;
@@ -26,8 +27,7 @@ export class ProfilePage {
   constructor(public navCtrl: NavController, public navParams: NavParams, afAuth: AngularFireAuth) {
     this.myPhotosRef = firebase.storage().ref('Photos/');
 
-    firebase.storage().ref().child('Photos/' + this.user.uid + '/myPhoto.png').getDownloadURL().then(url =>{
-      console.log(url);
+    firebase.storage().ref().child('Photos/' + this.user.uid + '/imgProfile.png').getDownloadURL().then(url =>{
       this.myPhotoURL = url;
     })
 
@@ -39,6 +39,7 @@ export class ProfilePage {
         this.userinfo.username = '@' + data.val().username;
         this.userinfo.name = data.val().name;
         this.userinfo.lastname = data.val().lastname;
+        this.userinfo.email = this.user.email;
       })
     }
   }
@@ -58,7 +59,7 @@ export class ProfilePage {
   }
 
   private uploadPhoto(): void {
-    this.myPhotosRef.child(this.user.uid).child('myPhoto.png')
+    this.myPhotosRef.child(this.user.uid).child('imgProfile.png')
     .putString(this.myPhoto, 'base64', { contentType: 'image/png' })
     .then((savedPicture) => {
       this.myPhotoURL = savedPicture.downloadURL;
@@ -67,9 +68,9 @@ export class ProfilePage {
 
   deleteAccount() {
 
-    firebase.storage().ref().child('Photos/' + this.user.uid).delete().then( info =>{
+    firebase.storage().ref().child('Photos/' + this.user.uid + '/imgProfile.png').delete().then( info => {
       console.log(info);
-    }).catch( error =>{
+    }).catch( error => {
       console.log(error);
     })
 
@@ -82,9 +83,5 @@ export class ProfilePage {
     })
 
     this.navCtrl.setRoot('FeedPage');
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
   }
 }

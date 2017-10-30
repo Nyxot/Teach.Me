@@ -5,6 +5,40 @@
 </ion-header>
 
 <ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button class="log" ion-button round full (click)="logIn()">
+          Log In
+        </button>    
+      </ion-col>
+      <ion-col>
+        <button class="sign" ion-button round full (click)="createAccount()">
+          Sign Up
+        </button>    
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card *ngFor="let tutor of tutors">
+          <!-- <img src="img/nin-live.png"/> -->
+          <h3>IMG</h3>
+          <ion-card-content>
+            <ion-card-title>
+              {{ tutor.tName }}
+            </ion-card-title>
+            <p>
+              The most popular industrial group ever, and largely
+              responsible for bringing the music to a mass audience.
+            </p>
+          </ion-card-content>
+        </ion-card>    
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!--
   <div class="buttons">
     <button class="log" ion-button round full (click)="logIn()">
       Log In
@@ -15,7 +49,7 @@
   </div> <br>
   <div class="cards">
     <ion-card *ngFor="let tutor of tutors">
-      <!-- <img src="img/nin-live.png"/> -->
+       <img src="img/nin-live.png"/> 
       <h3>IMG</h3>
       <ion-card-content>
         <ion-card-title>
@@ -28,4 +62,5 @@
       </ion-card-content>
     </ion-card>
   </div>
+  -->
 </ion-content>
