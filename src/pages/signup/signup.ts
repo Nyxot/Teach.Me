@@ -7,7 +7,6 @@ import {
   AlertController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
-import { LoginPage } from '../login/login';
 import { EmailValidator } from '../../validators/email';
 
 import { AngularFireAuth } from 'angularfire2/auth';

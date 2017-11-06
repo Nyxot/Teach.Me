@@ -13,6 +13,8 @@ export class FeedPage {
 
   constructor(public navCtrl: NavController, public menuCtrl: MenuController, public navParams: NavParams) {
 
+    console.log('asd');
+
     this.tutors = [
       {tName: 'Noel', tApellido: 'Espino', tUsername: 'NoelCordova'},
       {tName: 'asdfs', tApellido: 'sadf', tUsername: 'ASDFASDFAS'},
@@ -22,10 +24,6 @@ export class FeedPage {
 
     this.menuCtrl.enable(false, 'menu');
   }
-
-  /*ionViewDidLoad() {
-    console.log('ionViewDidLoad FeedPage');
-  }*/
 
   logIn(){
     this.navCtrl.push('LoginPage');

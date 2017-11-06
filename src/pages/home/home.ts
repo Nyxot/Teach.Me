@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, MenuController } from 'ionic-angular';
 
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth';
 import firebase from 'firebase/app';
 
 @Component({
@@ -11,12 +9,16 @@ import firebase from 'firebase/app';
 })
 export class HomePage {
 
-  item: FirebaseListObservable<any>;
-  tutors: Array<{tName: string, tApellido: string, tUsername: string}>
+  //tutors: Array<{tName: string, tApellido: string, tUsername: string}>
+  public myPhotoURL: any;
 
-  constructor(public navCtrl: NavController, public afDatabase: AngularFireDatabase,
-    public afAuth: AngularFireAuth, public menuCtrl: MenuController) {    
+  constructor(public navCtrl: NavController, public menuCtrl: MenuController) {
 
+    firebase.storage().ref().child('Photos/assets/programacion.png').getDownloadURL().then(url =>{
+      this.myPhotoURL = url;
+    })
+
+    /*
     firebase.database().ref('users/').on('value', gotData, err);
 
     function gotData(data){
@@ -38,6 +40,7 @@ export class HomePage {
     function err(err){
       console.log(err);
     }
+    */
 
     this.menuCtrl.enable(true, 'menu');
   }

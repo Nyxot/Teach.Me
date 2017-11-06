@@ -1,11 +1,19 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>
-      home
-    </ion-title>
+    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <ion-title>Inicio</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h4>IM WORKING ON IT</h4>
+<ion-content>
+  <ion-grid class="content">
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <img src="{{ myPhotoURL }}"/>
+          <div class="card-title">Programación</div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
