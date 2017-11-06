@@ -9,3 +9,10 @@ $ npm install firebase angularfire2 --save
 ```
 npm install promise-polyfill --save-exact
 ```
+
+## Instalar el proyecto
+* Clonar el repositorio
+* npm install
+```
+npm install
+```
