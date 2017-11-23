@@ -1,66 +1,51 @@
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title>feed</ion-title>
+  <ion-navbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          teach.me
+        </ion-col>
+        <ion-col>
+          <button class="log" ion-button icon-left block (click)="logIn()">
+            <ion-icon name="log-in"></ion-icon>
+            Log In
+          </button>    
+        </ion-col>
+        <ion-col>
+          <button class="sign" ion-button icon-left block (click)="createAccount()">
+            <ion-icon name="person-add"></ion-icon>
+            Sign Up
+          </button>    
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-
   <ion-grid>
+
     <ion-row>
       <ion-col>
-        <button class="log" ion-button round full (click)="logIn()">
-          Log In
-        </button>    
-      </ion-col>
-      <ion-col>
-        <button class="sign" ion-button round full (click)="createAccount()">
-          Sign Up
-        </button>    
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-card *ngFor="let tutor of tutors">
-          <!-- <img src="img/nin-live.png"/> -->
-          <h3>IMG</h3>
+
+        
+        <ion-card>
+          <ion-card-header>
+            {{ infoCurso.nombre }}
+          </ion-card-header>
           <ion-card-content>
             <ion-card-title>
-              {{ tutor.tName }}
+              {{ infoCurso.categoria }}
             </ion-card-title>
             <p>
-              The most popular industrial group ever, and largely
-              responsible for bringing the music to a mass audience.
+              {{ infoCurso.descripcion }}
             </p>
           </ion-card-content>
-        </ion-card>    
+        </ion-card>
+        
+
       </ion-col>
     </ion-row>
-  </ion-grid>
 
-  <!--
-  <div class="buttons">
-    <button class="log" ion-button round full (click)="logIn()">
-      Log In
-    </button>
-    <button class="sign" ion-button round full (click)="createAccount()">
-      Sign Up
-    </button>
-  </div> <br>
-  <div class="cards">
-    <ion-card *ngFor="let tutor of tutors">
-       <img src="img/nin-live.png"/> 
-      <h3>IMG</h3>
-      <ion-card-content>
-        <ion-card-title>
-          {{ tutor.tName }}
-        </ion-card-title>
-        <p>
-          The most popular industrial group ever, and largely
-          responsible for bringing the music to a mass audience.
-        </p>
-      </ion-card-content>
-    </ion-card>
-  </div>
-  -->
+  </ion-grid>
 </ion-content>

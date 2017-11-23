@@ -21,11 +21,8 @@ export class SignupPage {
   public signupForm:FormGroup;
   public loading:Loading;
 
-  user = {
-    username: "",
-    name: "",
-    lastname: ""
-  }
+  checked: boolean;
+  user = { username: "", name: "", lastname: "" }
 
   constructor(public nav: NavController, public authData: AuthProvider, 
     public formBuilder: FormBuilder, public loadingCtrl: LoadingController, 
@@ -33,24 +30,35 @@ export class SignupPage {
 
     this.signupForm = formBuilder.group({
       email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
-      password: ['', Validators.compose([Validators.minLength(6), Validators.required])]
+      password: ['', Validators.compose([Validators.minLength(6), Validators.required])],
     });
   }
 
-  /**
-   * If the form is valid it will call the AuthData service to sign the user up password displaying a loading
-   *  component while the user waits.
-   *
-   * If the form is invalid it will just log the form value, feel free to handle that as you like.
-   */
+  /*
+  datachanged(e:any){
+    console.log(e.checked);
+    this.checked = e.checked;
+  }
+  */
+
   signupUser(){
     if (!this.signupForm.valid){
       console.log(this.signupForm.value);
     } else {
+
+
       this.authData.signupUser(this.signupForm.value.email, this.signupForm.value.password).then(() => {
         this.afAuth.authState.subscribe(user =>{
-          this.afDatabase.object(`users/${user.uid}`).set(this.user);
+
+          /*
+          if(this.checked == true) this.afDatabase.object(`tutors/${user.uid}`).set(this.tutor);
+          else this.afDatabase.object(`users/${user.uid}`).set(this.user);
+          console.log("?:" + this.checked);
+          */
+          this.afDatabase.object(`users/${user.uid}`).set(this.user)
         });
+
+
         this.nav.setRoot('LoginPage');
       }, (error) => {
         this.loading.dismiss().then( () => {
