@@ -9,6 +9,9 @@ import { HomePage } from '../pages/home/home';
 import { ProfilePage } from '../pages/profile/profile';
 import { AuthProvider } from '../providers/auth/auth';
 import { UserinfoPage } from '../pages/userinfo/userinfo';
+import { AddtutoriaPage } from '../pages/addtutoria/addtutoria';
+import { CardsPage } from '../pages/cards/cards';
+import { CreatetutoriaPage } from '../pages/createtutoria/createtutoria';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -29,6 +32,9 @@ const firebaseConfig = {
     HomePage,
     UserinfoPage,
     ProfilePage,
+    AddtutoriaPage,
+    CardsPage,
+    CreatetutoriaPage,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +49,9 @@ const firebaseConfig = {
     HomePage,
     UserinfoPage,
     ProfilePage,
+    AddtutoriaPage,
+    CardsPage,
+    CreatetutoriaPage,
   ],
   providers: [
     StatusBar,

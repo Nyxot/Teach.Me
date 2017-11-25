@@ -21,7 +21,8 @@ export class MyApp {
   userinfo = {
     lastname: "",
     name: "",
-    username: ""
+    username: "",
+    tutor: ""
   }
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, afAuth: AngularFireAuth,

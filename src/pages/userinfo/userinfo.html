@@ -23,6 +23,11 @@
     <ion-input [(ngModel)]="userinfo.lastname"></ion-input>
   </ion-item>
 
+  <ion-item>
+    <ion-label>¿Eres tutor?</ion-label>
+    <ion-checkbox [(ngModel)]="userinfo.tutor"></ion-checkbox>
+  </ion-item>
+
   <button ion-button (click)="createProfile()">Create profile</button>
 
 </ion-content>

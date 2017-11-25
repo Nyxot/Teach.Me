@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Camera } from 'ionic-native';
+//import { Camera } from 'ionic-native';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import firebase from 'firebase';
@@ -45,6 +45,7 @@ export class ProfilePage {
   }
 
   selectPhoto(): void {
+    /*
     Camera.getPicture({
       sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
       destinationType: Camera.DestinationType.DATA_URL,
@@ -56,6 +57,7 @@ export class ProfilePage {
     }, error => {
       console.log("ERROR -> " + JSON.stringify(error));
     });
+    */
   }
 
   private uploadPhoto(): void {

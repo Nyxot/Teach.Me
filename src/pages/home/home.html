@@ -1,11 +1,18 @@
 <ion-header>
   <ion-navbar color="primary">
-    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
-    <ion-title>Inicio</ion-title>
+    <ion-title>
+      Teach.Me
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+    <ion-tabs #paymentTabs [selectedIndex]="tabsIndex" >
+        <ion-tab [root]="cardsRoot" tabTitle="Home"></ion-tab>
+        <ion-tab [show]="shouldHide" [root]="addRoot" tabTitle="Add Tutoria"></ion-tab>
+    </ion-tabs>
+  <h4>IM WORKING ON IT</h4>
+  <!--
   <ion-grid class="content">
     <ion-row>
       <ion-col>
@@ -16,4 +23,5 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+  -->
 </ion-content>

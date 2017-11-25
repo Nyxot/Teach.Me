@@ -1,0 +1,52 @@
+<ion-header>
+  <!--
+  <ion-navbar>
+    <ion-title>cards</ion-title> 
+  </ion-navbar>
+  -->
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-card *ngFor="let card of cards">
+            <ion-card-header>
+              {{ card.nombre }}
+            </ion-card-header>
+            <ion-card-content>
+            <ion-card-title>
+              {{ card.categoria }}
+            </ion-card-title>
+              <p>
+                {{ card.tutor }}
+              </p>
+              <p>
+                {{ card.descripcion }}
+              </p>
+            </ion-card-content>
+          </ion-card>
+        </ion-list>
+          <!--
+          <ion-card>
+            <ion-card-header>
+              {{ infoCurso.nombre }}
+            </ion-card-header>
+            <ion-card-content>
+            <ion-card-title>
+              {{ infoCurso.categoria }}
+            </ion-card-title>
+            <p>
+              {{infoCurso.tutor}}
+            </p>
+            <p>
+              {{ infoCurso.descripcion }}
+            </p>
+            </ion-card-content>
+          </ion-card>
+          -->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

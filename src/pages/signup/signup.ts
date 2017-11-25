@@ -21,8 +21,8 @@ export class SignupPage {
   public signupForm:FormGroup;
   public loading:Loading;
 
-  checked: boolean;
-  user = { username: "", name: "", lastname: "" }
+  tutor: boolean;
+  user = { username: "", name: "", lastname: ""}
 
   constructor(public nav: NavController, public authData: AuthProvider, 
     public formBuilder: FormBuilder, public loadingCtrl: LoadingController, 
