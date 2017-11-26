@@ -1,12 +1,36 @@
 <ion-header>
-  <!--
+  
   <ion-navbar>
-    <ion-title>addtutoria</ion-title>
-  </ion-navbar> -->
+    <ion-title>Add Tutoria</ion-title>
+  </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
+<ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-card *ngFor="let card of cards" (click)="viewCard(card.nombre)">
+            <ion-card-header>
+              {{ card.nombre }}
+            </ion-card-header>
+            <ion-card-content>
+            <ion-card-title>
+              {{ card.categoria }}
+            </ion-card-title>
+              <p>
+                {{ card.tutor }}
+              </p>
+              <p>
+                {{ card.descripcion }}
+              </p>
+            </ion-card-content>
+          </ion-card>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   <div class="buttons">
       <button class="sign" ion-button round full (click)="createTutoria()">
         Create Tutoria

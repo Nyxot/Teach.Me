@@ -12,6 +12,7 @@ import { UserinfoPage } from '../pages/userinfo/userinfo';
 import { AddtutoriaPage } from '../pages/addtutoria/addtutoria';
 import { CardsPage } from '../pages/cards/cards';
 import { CreatetutoriaPage } from '../pages/createtutoria/createtutoria';
+import { CardviewPage } from '../pages/cardview/cardview';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -35,6 +36,7 @@ const firebaseConfig = {
     AddtutoriaPage,
     CardsPage,
     CreatetutoriaPage,
+    CardviewPage,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +54,7 @@ const firebaseConfig = {
     AddtutoriaPage,
     CardsPage,
     CreatetutoriaPage,
+    CardviewPage,
   ],
   providers: [
     StatusBar,

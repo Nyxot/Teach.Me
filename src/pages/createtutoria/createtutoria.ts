@@ -11,6 +11,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import firebase from 'firebase';
 import { FormControl } from '@angular/forms/src/model';
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -54,5 +55,6 @@ export class CreatetutoriaPage {
       });
     
     this.navCtrl.pop();
+    this.navCtrl.setRoot(HomePage);
   }
 }

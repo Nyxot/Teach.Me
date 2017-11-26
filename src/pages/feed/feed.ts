@@ -12,23 +12,40 @@ export class FeedPage {
   //Obtener uid del usuario activo, pero como en feed no hay se lo voy a pasar directamente
   //user = firebase.auth().currentUser.uid;
 
-  infoCurso = { nombre: "", descripcion: "", categoria: "" }
+  cards = [];
 
   constructor(public navCtrl: NavController, public menuCtrl: MenuController) {
 
     //Esta consulta se hace directamente a los usuarios y agarra todos los que existen
-    firebase.database().ref('users/').on('value', data => {
+    firebase.database().ref('tutorias/').on('value', data => {
+      if(data.val() != null){
       var datos = data.val();
       var keys = Object.keys(datos)
 
       for(var i = 0; i < keys.length; i++) {
         var k = keys[i];
-        var datoTutor = datos[k];
+        var datoTutoria = datos[k];
 
-        this.infoCurso.nombre = datoTutor.name + " " + datoTutor.lastname;
-        this.infoCurso.descripcion = "Esto es la descripcion"; //Esto cuando este en firebase datoTutor.descripcion
-        this.infoCurso.categoria = "Esta es la categoria"; //Esto cuando este en firebase datoTutor.categoria
+        this.cards.push(
+          {
+          nombre : datoTutoria.tutoriaName,
+            tutor : datoTutoria.tutorName,
+            descripcion : datoTutoria.descripcion,
+            categoria : datoTutoria.categoria
+          }
+        );
+        console.log(this.cards);
       }
+    }   
+    }, error =>{
+      this.cards.push(
+        {
+        nombre : "",
+          tutor : "",
+          descripcion : "",
+          categoria : ""
+        }
+      );
     });
     
     //Cuando quieras hacer una consulta a un usuario en especifico debes obtener su uid y se lo pasas como ref.

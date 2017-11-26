@@ -16,6 +16,7 @@ export class CardsPage {
     public menuCtrl: MenuController) {
       
     firebase.database().ref('tutorias/').on('value', data => {
+      if(data.val() != null){
       var datos = data.val();
       var keys = Object.keys(datos)
 
@@ -28,17 +29,22 @@ export class CardsPage {
            nombre : datoTutoria.tutoriaName,
             tutor : datoTutoria.tutorName,
             descripcion : datoTutoria.descripcion,
-            categoria : datoTutoria.categora
+            categoria : datoTutoria.categoria
           }
         );
         console.log(this.cards);
-        /*
-        this.cards.nombre = datoTutoria.tutoriaName;
-        this.cards.tutor = datoTutoria.tutorName;
-        this.cards.descripcion = datoTutoria.descripcion;
-        this.cards.categoria = datoTutoria.categoria;
-        */
+      
       }
+    }
+    }, error =>{
+      this.cards.push(
+        {
+        nombre : "",
+          tutor : "",
+          descripcion : "",
+          categoria : ""
+        }
+      );
     });
     this.menuCtrl.enable(true, 'menu');
   }
