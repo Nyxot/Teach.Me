@@ -41,6 +41,9 @@ export class CreatetutoriaPage {
   }
 
   createCard(){
+    if (!this.createForm.valid){
+      console.log(this.createForm.value);
+    } else {
       const value = this.createForm.value;
       firebase.database().ref('users/' + this.uid).on('value', data => {
         this.nombre = data.val().name + " " + data.val().lastname;
@@ -54,7 +57,8 @@ export class CreatetutoriaPage {
         categoria: value.categoria
       });
     
-    this.navCtrl.pop();
-    this.navCtrl.setRoot(HomePage);
+      this.navCtrl.setRoot(HomePage);
+      this.navCtrl.popToRoot();
+    }
   }
 }

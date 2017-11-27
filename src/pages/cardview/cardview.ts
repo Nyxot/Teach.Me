@@ -51,7 +51,7 @@ export class CardviewPage {
 
   deleteCard(){
     firebase.database().ref('tutorias/'+this.idCard).remove();
-    this.navCtrl.pop();
     this.navCtrl.setRoot(HomePage);
+    this.navCtrl.popToRoot(); 
   }
 }

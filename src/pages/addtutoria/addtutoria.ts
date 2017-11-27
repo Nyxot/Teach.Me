@@ -62,7 +62,7 @@ export class AddtutoriaPage {
   }
 
   viewCard(nombre: string){
-    console.log(nombre);
+    //console.log(nombre);
     let cardview = this.modalCtrl.create(CardviewPage, {cardNombre: nombre});
     cardview.present();
   }

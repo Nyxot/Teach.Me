@@ -32,7 +32,7 @@ export class CardsPage {
             categoria : datoTutoria.categoria
           }
         );
-        console.log(this.cards);
+        //console.log(this.cards);
       
       }
     }

@@ -34,4 +34,8 @@ export class HomePage {
 
     this.menuCtrl.enable(true, 'menu');
   }
+
+  ionViewDidEnter(){
+    //console.log("home");
+  }
 }
