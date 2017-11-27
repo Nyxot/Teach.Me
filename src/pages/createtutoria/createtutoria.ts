@@ -30,12 +30,36 @@ export class CreatetutoriaPage {
     public loadingCtrl: LoadingController, public afDatabase: AngularFireDatabase, 
     public afAuth: AngularFireAuth, public menuCtrl: MenuController,
     public viewCtrl: ViewController) {
+    
+    console.log(this.navParams.get('cardID'));
+    if(!this.navParams.get('cardID')){
+      console.log("no cardId");
+      this.createForm = formBuilder.group({
+        nombre: ['', Validators.compose([Validators.minLength(6), Validators.required])],
+        descrip: ['', Validators.compose([Validators.minLength(20), Validators.required])],
+        categoria: ['', Validators.compose([Validators.minLength(6), Validators.required])]
+      });
 
-    this.createForm = formBuilder.group({
-      nombre: ['', Validators.compose([Validators.minLength(6), Validators.required])],
-      descrip: ['', Validators.compose([Validators.minLength(20), Validators.required])],
-      categoria: ['', Validators.compose([Validators.minLength(6), Validators.required])]
-    });
+    }else{
+
+      console.log("cardId");
+
+      firebase.database().ref('tutorias/' + this.navParams.get('cardID') ).on('value', data =>{
+        if(data.val() != null ){
+          console.log(data.val().tutoriaName);
+          console.log(data.val().descripcion);
+          console.log(data.val().categoria);
+
+          this.createForm = formBuilder.group({
+            nombre: [data.val().tutoriaName, Validators.compose([Validators.minLength(6), Validators.required])],
+            descrip: [data.val().descripcion, Validators.compose([Validators.minLength(20), Validators.required])],
+            categoria: [data.val().categoria, Validators.compose([Validators.minLength(6), Validators.required])]
+          });
+        }
+
+      });
+    
+    }
   }
 
   closeModal() {
@@ -58,6 +82,16 @@ export class CreatetutoriaPage {
         descripcion: value.descrip,
         categoria: value.categoria
       });
+
+      if(this.navParams.get('cardID')){
+        firebase.database().ref('tutorias/' + this.navParams.get('cardID') ).on('value', data =>{
+          if(data.val() != null ){
+            if(this.navParams.get('cardID') != this.uid +'@'+ value.nombre){
+              firebase.database().ref('tutorias/'+this.navParams.get('cardID')).remove();
+            }
+          }
+        });
+      }
     
       //this.navCtrl.popToRoot();
       this.viewCtrl.dismiss();

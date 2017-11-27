@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import firebase from 'firebase';
 import { HomePage } from '../home/home';
+import { CreatetutoriaPage } from '../createtutoria/createtutoria';
 
 @IonicPage()
 @Component({
@@ -53,5 +54,11 @@ export class CardviewPage {
     firebase.database().ref('tutorias/'+this.idCard).remove();
     this.navCtrl.setRoot(HomePage);
     this.navCtrl.popToRoot(); 
+  }
+
+  editCard(){
+    this.navCtrl.push(CreatetutoriaPage, {
+      cardID : this.idCard
+    });
   }
 }
