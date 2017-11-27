@@ -13,6 +13,7 @@ import { AddtutoriaPage } from '../pages/addtutoria/addtutoria';
 import { CardsPage } from '../pages/cards/cards';
 import { CreatetutoriaPage } from '../pages/createtutoria/createtutoria';
 import { CardviewPage } from '../pages/cardview/cardview';
+import { CardviewhomePage } from '../pages/cardviewhome/cardviewhome';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -37,6 +38,7 @@ const firebaseConfig = {
     CardsPage,
     CreatetutoriaPage,
     CardviewPage,
+    CardviewhomePage,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +57,7 @@ const firebaseConfig = {
     CardsPage,
     CreatetutoriaPage,
     CardviewPage,
+    CardviewhomePage,
   ],
   providers: [
     StatusBar,

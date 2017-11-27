@@ -11,7 +11,7 @@
     <ion-row>
       <ion-col>
         <ion-list>
-          <ion-card *ngFor="let card of cards">
+          <ion-card *ngFor="let card of cards" (click)="viewCard(card.nombre)">
             <ion-card-header>
               {{ card.nombre }}
             </ion-card-header>

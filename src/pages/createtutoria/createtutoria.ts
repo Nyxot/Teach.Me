@@ -5,7 +5,8 @@ import { IonicPage,
   Loading, 
   AlertController,
   MenuController, 
-  NavParams } from 'ionic-angular';
+  NavParams,
+  ViewController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -27,7 +28,8 @@ export class CreatetutoriaPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public formBuilder: FormBuilder, public alertCtrl: AlertController,
     public loadingCtrl: LoadingController, public afDatabase: AngularFireDatabase, 
-    public afAuth: AngularFireAuth, public menuCtrl: MenuController) {
+    public afAuth: AngularFireAuth, public menuCtrl: MenuController,
+    public viewCtrl: ViewController) {
 
     this.createForm = formBuilder.group({
       nombre: ['', Validators.compose([Validators.minLength(6), Validators.required])],
@@ -37,7 +39,7 @@ export class CreatetutoriaPage {
   }
 
   closeModal() {
-    this.navCtrl.pop();
+    this.viewCtrl.dismiss();
   }
 
   createCard(){
@@ -57,8 +59,9 @@ export class CreatetutoriaPage {
         categoria: value.categoria
       });
     
+      //this.navCtrl.popToRoot();
+      this.viewCtrl.dismiss();
       this.navCtrl.setRoot(HomePage);
-      this.navCtrl.popToRoot();
     }
   }
 }

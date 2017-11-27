@@ -25,10 +25,12 @@ export class HomePage {
     });
 
     firebase.database().ref('users/' + this.uid).on('value', data =>{
-      data.val().tutor;
-      console.log(data.val().tutor);
-      if(data.val().tutor == true){
-        this.shouldHide = true;
+      if(data.val() != null){
+        data.val().tutor;
+        console.log(data.val().tutor);
+        if(data.val().tutor == true){
+          this.shouldHide = true;
+        }
       }
     });
 

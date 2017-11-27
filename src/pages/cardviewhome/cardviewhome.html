@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>{{card.nombre}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeModal()">
+          <ion-icon item-right name="ios-close-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div>
+      <h1>{{ card.nombre }}</h1>
+      <p>{{ card.categoria }}</p>
+      <p>{{ card.tutor }}</p>
+      <p> {{ card.descripcion }} </p>
+    </div>
+    <div class="buttons">
+        <button class="sign" ion-button round full (click)="takeTutoria()">
+          Take Tutoria
+        </button>
+    </div>
+</ion-content>

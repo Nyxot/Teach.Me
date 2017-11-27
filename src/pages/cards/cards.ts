@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, ModalController } from 'ionic-angular';
 
 import firebase from 'firebase';
+
+import { CardviewhomePage } from '../cardviewhome/cardviewhome';
 
 @IonicPage()
 @Component({
@@ -13,7 +15,7 @@ export class CardsPage {
   cards = [];
   
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-    public menuCtrl: MenuController) {
+    public menuCtrl: MenuController, public modalCtrl: ModalController) {
       
     firebase.database().ref('tutorias/').on('value', data => {
       if(data.val() != null){
@@ -47,6 +49,12 @@ export class CardsPage {
       );
     });
     this.menuCtrl.enable(true, 'menu');
+  }
+
+  viewCard(nombre: string){
+    //console.log(nombre);
+    let cardview = this.modalCtrl.create(CardviewhomePage, {cardNombre: nombre});
+    cardview.present();
   }
 
 }
