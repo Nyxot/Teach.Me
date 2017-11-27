@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, MenuController, Tabs } from 'ionic-angular';
+import { NavController, MenuController, Tabs, NavParams } from 'ionic-angular';
 
 import firebase from 'firebase/app';
 
@@ -18,7 +18,8 @@ export class HomePage {
   shouldHide = false;
   uid = firebase.auth().currentUser.uid;
 
-  constructor(public navCtrl: NavController, public menuCtrl: MenuController) {
+  constructor(public navCtrl: NavController, public menuCtrl: MenuController,
+  public navParams: NavParams) {
 
     firebase.storage().ref().child('Photos/assets/programacion.png').getDownloadURL().then(url =>{
       this.myPhotoURL = url;
@@ -35,6 +36,12 @@ export class HomePage {
     });
 
     this.menuCtrl.enable(true, 'menu');
+
+    if(this.navParams.get("cardName") != null){
+      this.navCtrl.push(CardsPage, {
+        cardName : this.navParams.get('cardName')
+      });
+    }
   }
 
   ionViewDidEnter(){

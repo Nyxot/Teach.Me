@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, MenuController} from 'ionic-angular';
 
 import firebase from 'firebase';
+import { LoginPage } from '../login/login';
+import { SignupPage } from '../signup/signup';
 
 @IonicPage()
 @Component({
@@ -62,11 +64,17 @@ export class FeedPage {
   }
 
   logIn(){
-    this.navCtrl.push('LoginPage');
+    this.navCtrl.push(LoginPage);
   }
 
   createAccount(){
-    this.navCtrl.push('SignupPage');
+    this.navCtrl.push(SignupPage);
+  }
+
+  viewCard(nombre: string){
+    this.navCtrl.push(SignupPage, {
+      cardName : nombre
+    });
   }
 
 }
