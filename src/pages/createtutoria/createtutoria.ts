@@ -6,12 +6,12 @@ import { IonicPage,
   AlertController,
   MenuController, 
   NavParams,
-  ViewController } from 'ionic-angular';
+  ViewController,
+  App } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import firebase from 'firebase';
-import { FormControl } from '@angular/forms/src/model';
 import { HomePage } from '../home/home';
 
 @IonicPage()
@@ -29,7 +29,7 @@ export class CreatetutoriaPage {
     public formBuilder: FormBuilder, public alertCtrl: AlertController,
     public loadingCtrl: LoadingController, public afDatabase: AngularFireDatabase, 
     public afAuth: AngularFireAuth, public menuCtrl: MenuController,
-    public viewCtrl: ViewController) {
+    public viewCtrl: ViewController, public app: App) {
     
     console.log(this.navParams.get('cardID'));
     if(!this.navParams.get('cardID')){
@@ -95,7 +95,7 @@ export class CreatetutoriaPage {
     
       //this.navCtrl.popToRoot();
       this.viewCtrl.dismiss();
-      this.navCtrl.setRoot(HomePage);
+      this.app.getRootNav().setRoot(HomePage);
     }
   }
 }

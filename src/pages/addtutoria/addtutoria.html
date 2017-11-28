@@ -1,12 +1,17 @@
 <ion-header>
   
   <ion-navbar>
-    <ion-title>Add Tutoria</ion-title>
+    <ion-title>Manage courses</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+<div class="buttons">
+    <button class="sign" ion-button round full (click)="createTutoria()">
+      Create Tutoria
+    </button>
+</div>
 <ion-grid>
     <ion-row>
       <ion-col>
@@ -31,9 +36,4 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <div class="buttons">
-      <button class="sign" ion-button round full (click)="createTutoria()">
-        Create Tutoria
-      </button>
-  </div>
 </ion-content>

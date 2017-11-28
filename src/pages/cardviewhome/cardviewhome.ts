@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import firebase from "firebase";
-import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({

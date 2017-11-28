@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App, ViewController } from 'ionic-angular';
 import firebase from 'firebase';
 import { HomePage } from '../home/home';
 import { CreatetutoriaPage } from '../createtutoria/createtutoria';
@@ -14,7 +14,8 @@ export class CardviewPage {
   card = {nombre: "", categoria: "", tutor: "", descripcion: ""};
   idCard: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+  public app: App, public viewCtrl: ViewController) {
     console.log(navParams.get('cardNombre'));
 
     firebase.database().ref('tutorias/').on('value', data => {
@@ -47,13 +48,13 @@ export class CardviewPage {
   }
 
   closeModal() {
-    this.navCtrl.pop();
+    this.viewCtrl.dismiss();
   }
 
   deleteCard(){
     firebase.database().ref('tutorias/'+this.idCard).remove();
-    this.navCtrl.setRoot(HomePage);
-    this.navCtrl.popToRoot(); 
+    this.viewCtrl.dismiss();
+    this.app.getRootNav().setRoot(HomePage);
   }
 
   editCard(){

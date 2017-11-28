@@ -48,7 +48,7 @@ export class CardsPage {
         }
       );
     });
-    this.menuCtrl.enable(true, 'menu');
+    //this.menuCtrl.enable(true, 'menu');
 
     if(this.navParams.get('cardName') != null){
       this.viewCard(this.navParams.get('cardName'));
