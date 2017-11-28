@@ -24,7 +24,8 @@ export class ProfilePage {
   public myPhoto: any;
   public myPhotoURL: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, afAuth: AngularFireAuth) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    afAuth: AngularFireAuth) {
     //this.myPhotosRef = firebase.storage().ref('Photos/');
 
     /*firebase.storage().ref().child('Photos/' + this.user.uid + '/imgProfile.png').getDownloadURL().then(url =>{
@@ -38,8 +39,8 @@ export class ProfilePage {
     });*/
 
     if(this.user != null){
-      console.log(this.user.uid);
-      console.log(this.user.email);
+      //console.log(this.user.uid);
+      //console.log(this.user.email);
 
       firebase.database().ref(`users/` + this.user.uid).on('value', data => {
         if(data.val() != null){
@@ -93,7 +94,7 @@ export class ProfilePage {
     firebase.database().ref('users/' + this.user.uid).remove();
     
     this.user.delete().then( info => {
-      console.log('UID removed: ' + this.user.uid)
+      //console.log('UID removed: ' + this.user.uid)
     }).catch(error => {
       console.log(error)
     })

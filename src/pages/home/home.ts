@@ -3,8 +3,9 @@ import { NavController, MenuController, Tabs, NavParams } from 'ionic-angular';
 
 import firebase from 'firebase/app';
 
-import {CardsPage} from  '../cards/cards';
-import {AddtutoriaPage} from '../addtutoria/addtutoria';
+import { CardsPage } from  '../cards/cards';
+import { AddtutoriaPage } from '../addtutoria/addtutoria';
+import { TutoriasPage } from '../tutorias/tutorias';
 
 @Component({
   selector: 'page-home',
@@ -15,6 +16,7 @@ export class HomePage {
   @ViewChild("paymentTabs") paymentTabs: Tabs;
   cardsRoot = CardsPage;
   addRoot = AddtutoriaPage;
+  tutoriasRoot = TutoriasPage;
   shouldHide = false;
   uid = firebase.auth().currentUser.uid;
 
@@ -28,7 +30,7 @@ export class HomePage {
     firebase.database().ref('users/' + this.uid).on('value', data =>{
       if(data.val() != null){
         data.val().tutor;
-        console.log(data.val().tutor);
+        //console.log(data.val().tutor);
         if(data.val().tutor == true){
           this.shouldHide = true;
         }

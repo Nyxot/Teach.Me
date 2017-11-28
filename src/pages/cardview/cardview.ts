@@ -16,7 +16,7 @@ export class CardviewPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
   public app: App, public viewCtrl: ViewController) {
-    console.log(navParams.get('cardNombre'));
+    //console.log(navParams.get('cardNombre'));
 
     firebase.database().ref('tutorias/').on('value', data => {
       if(data.val() != null){

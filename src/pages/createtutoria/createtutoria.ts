@@ -31,9 +31,9 @@ export class CreatetutoriaPage {
     public afAuth: AngularFireAuth, public menuCtrl: MenuController,
     public viewCtrl: ViewController, public app: App) {
     
-    console.log(this.navParams.get('cardID'));
+    //console.log(this.navParams.get('cardID'));
     if(!this.navParams.get('cardID')){
-      console.log("no cardId");
+      //console.log("no cardId");
       this.createForm = formBuilder.group({
         nombre: ['', Validators.compose([Validators.minLength(6), Validators.required])],
         descrip: ['', Validators.compose([Validators.minLength(20), Validators.required])],
@@ -42,13 +42,13 @@ export class CreatetutoriaPage {
 
     }else{
 
-      console.log("cardId");
+      //console.log("cardId");
 
       firebase.database().ref('tutorias/' + this.navParams.get('cardID') ).on('value', data =>{
         if(data.val() != null ){
-          console.log(data.val().tutoriaName);
-          console.log(data.val().descripcion);
-          console.log(data.val().categoria);
+          //console.log(data.val().tutoriaName);
+          //console.log(data.val().descripcion);
+          //console.log(data.val().categoria);
 
           this.createForm = formBuilder.group({
             nombre: [data.val().tutoriaName, Validators.compose([Validators.minLength(6), Validators.required])],

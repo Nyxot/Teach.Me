@@ -8,13 +8,16 @@ import firebase from "firebase";
   templateUrl: 'cardviewhome.html',
 })
 export class CardviewhomePage {
-  card = {nombre: "", categoria: "", tutor: "", descripcion: ""};
+  card = {nombre: "", categoria: "", tutor: "", descripcion: "", tutorID: ""};
   idCard: any;
+  uid = firebase.auth().currentUser.uid;
+  uemail = firebase.auth().currentUser.email;
+  uname = "";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public viewCtrl: ViewController) {
 
-    console.log(navParams.get('cardNombre'));
+    //console.log(navParams.get('cardNombre'));
     
     firebase.database().ref('tutorias/').on('value', data => {
       if(data.val() != null){
@@ -50,6 +53,30 @@ export class CardviewhomePage {
   }
 
   takeTutoria(){
+    firebase.database().ref('tutoriasperuser/'+this.uid+'/'+this.idCard).set({
+      tutorID : this.card.tutorID,
+      tutorName : this.card.tutor,
+      tutoriaName : this.card.nombre,
+      categoria : this.card.categoria,
+      descripcion : this.card.descripcion,
+      completada : false
+    });
+
+    firebase.database().ref('users/'+this.uid).on('value', data =>{
+      this.uname = data.val().name + " " + data.val().lastname;
+    });
+
+    firebase.database().ref('tutoriasSolicitadas/'+this.card.tutorID+'/'+this.idCard+'/'+
+    this.uid).set({
+      tutoradoID : this.uid,
+      tutoradoName : this.uname,
+      tutoradoEmail : this.uemail,
+      tutoriaName : this.card.nombre,
+      categoria : this.card.categoria,
+      descripcion : this.card.descripcion,
+      completada : false
+    });
+
     this.viewCtrl.dismiss();
   }
 

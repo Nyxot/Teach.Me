@@ -40,7 +40,7 @@ export class LoginPage {
       });
 
       this.menuCtrl.enable(false, 'menu');
-      console.log(this.navParams.get('cardName'));
+      //console.log(this.navParams.get('cardName'));
   }
 
   loginUser(){

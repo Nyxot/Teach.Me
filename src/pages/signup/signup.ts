@@ -37,7 +37,7 @@ export class SignupPage {
       password: ['', Validators.compose([Validators.minLength(6), Validators.required])],
     });
 
-    console.log(this.navParams.get('cardName'));
+    //console.log(this.navParams.get('cardName'));
   }
 
   /*
