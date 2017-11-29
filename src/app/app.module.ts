@@ -17,6 +17,7 @@ import { CardviewhomePage } from '../pages/cardviewhome/cardviewhome';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { TutoriasPage } from '../pages/tutorias/tutorias';
+import { TutoriaviewPage } from '../pages/tutoriaview/tutoriaview';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -45,6 +46,7 @@ const firebaseConfig = {
     LoginPage,
     SignupPage,
     TutoriasPage,
+    TutoriaviewPage,
   ],
   imports: [
     BrowserModule,
@@ -67,6 +69,7 @@ const firebaseConfig = {
     LoginPage,
     SignupPage,
     TutoriasPage,
+    TutoriaviewPage,
   ],
   providers: [
     StatusBar,

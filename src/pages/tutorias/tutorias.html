@@ -7,6 +7,28 @@
 </ion-header>
 
 <ion-content>
-  <h1>Here display your tutorias</h1>
-  
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-card *ngFor="let card of cards" (click)="viewCard(card.tutoradoID)">
+            <ion-card-header>
+              {{ card.nombre }}
+            </ion-card-header>
+            <ion-card-content>
+            <p>
+              {{ card.categoria }}
+            </p>
+              <p>
+                {{ card.tutorado }}
+              </p>
+              <p>
+                {{ card.email }}
+              </p>
+            </ion-card-content>
+          </ion-card>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -30,6 +30,7 @@ export class CardviewhomePage {
 
         if(datoTutoria.tutoriaName == navParams.get('cardNombre') ){
           this.idCard = keys[i];
+          this.card.tutorID = datoTutoria.tutorId,
           this.card.nombre = datoTutoria.tutoriaName;
           this.card.categoria = datoTutoria.categoria;
           this.card.tutor = datoTutoria.tutorName;
@@ -40,6 +41,7 @@ export class CardviewhomePage {
       }
     }
     }, error =>{
+      this.card.tutorID = "",
       this.idCard = "";
       this.card.nombre = "";
       this.card.categoria = "";
@@ -68,6 +70,7 @@ export class CardviewhomePage {
 
     firebase.database().ref('tutoriasSolicitadas/'+this.card.tutorID+'/'+this.idCard+'/'+
     this.uid).set({
+      tutorID : this.card.tutorID, 
       tutoradoID : this.uid,
       tutoradoName : this.uname,
       tutoradoEmail : this.uemail,

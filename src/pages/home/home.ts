@@ -17,6 +17,7 @@ export class HomePage {
   cardsRoot = CardsPage;
   addRoot = AddtutoriaPage;
   tutoriasRoot = TutoriasPage;
+  tutoriastake = "";
   shouldHide = false;
   uid = firebase.auth().currentUser.uid;
 
