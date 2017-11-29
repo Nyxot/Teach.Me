@@ -6,6 +6,7 @@ import firebase from 'firebase/app';
 import { CardsPage } from  '../cards/cards';
 import { AddtutoriaPage } from '../addtutoria/addtutoria';
 import { TutoriasPage } from '../tutorias/tutorias';
+import { TutoriastakePage } from '../tutoriastake/tutoriastake';
 
 @Component({
   selector: 'page-home',
@@ -17,7 +18,7 @@ export class HomePage {
   cardsRoot = CardsPage;
   addRoot = AddtutoriaPage;
   tutoriasRoot = TutoriasPage;
-  tutoriastake = "";
+  tutoriastake = TutoriastakePage;
   shouldHide = false;
   uid = firebase.auth().currentUser.uid;
 

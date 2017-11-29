@@ -18,6 +18,8 @@ import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { TutoriasPage } from '../pages/tutorias/tutorias';
 import { TutoriaviewPage } from '../pages/tutoriaview/tutoriaview';
+import { TutoriastakePage } from '../pages/tutoriastake/tutoriastake';
+import { TutoriastakeviewPage } from '../pages/tutoriastakeview/tutoriastakeview';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -47,6 +49,8 @@ const firebaseConfig = {
     SignupPage,
     TutoriasPage,
     TutoriaviewPage,
+    TutoriastakePage,
+    TutoriastakeviewPage,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +74,8 @@ const firebaseConfig = {
     SignupPage,
     TutoriasPage,
     TutoriaviewPage,
+    TutoriastakePage,
+    TutoriastakeviewPage,
   ],
   providers: [
     StatusBar,
