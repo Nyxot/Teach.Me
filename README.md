@@ -3,6 +3,11 @@
 ```
 $ npm install firebase angularfire2 --save
 ```
+##Compilar para Android
+
+```
+ionic cordova build android
+```
 
 ## Error al compilar para Android
 

@@ -13,6 +13,13 @@ import { AddtutoriaPage } from '../pages/addtutoria/addtutoria';
 import { CardsPage } from '../pages/cards/cards';
 import { CreatetutoriaPage } from '../pages/createtutoria/createtutoria';
 import { CardviewPage } from '../pages/cardview/cardview';
+import { CardviewhomePage } from '../pages/cardviewhome/cardviewhome';
+import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
+import { TutoriasPage } from '../pages/tutorias/tutorias';
+import { TutoriaviewPage } from '../pages/tutoriaview/tutoriaview';
+import { TutoriastakePage } from '../pages/tutoriastake/tutoriastake';
+import { TutoriastakeviewPage } from '../pages/tutoriastakeview/tutoriastakeview';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -37,6 +44,13 @@ const firebaseConfig = {
     CardsPage,
     CreatetutoriaPage,
     CardviewPage,
+    CardviewhomePage,
+    LoginPage,
+    SignupPage,
+    TutoriasPage,
+    TutoriaviewPage,
+    TutoriastakePage,
+    TutoriastakeviewPage,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +69,13 @@ const firebaseConfig = {
     CardsPage,
     CreatetutoriaPage,
     CardviewPage,
+    CardviewhomePage,
+    LoginPage,
+    SignupPage,
+    TutoriasPage,
+    TutoriaviewPage,
+    TutoriastakePage,
+    TutoriastakeviewPage,
   ],
   providers: [
     StatusBar,

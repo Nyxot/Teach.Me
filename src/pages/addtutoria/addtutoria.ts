@@ -20,7 +20,7 @@ export class AddtutoriaPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, 
     public menuCtrl: MenuController, public modalCtrl: ModalController) {
 
-    this.menuCtrl.enable(true, 'menu');
+    //this.menuCtrl.enable(true, 'menu');
 
     firebase.database().ref('tutorias/').on('value', data => {
       if(data.val() != null){

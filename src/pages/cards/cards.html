@@ -1,24 +1,16 @@
-<ion-header>
-  <!--
-  <ion-navbar>
-    <ion-title>cards</ion-title> 
-  </ion-navbar>
-  -->
-</ion-header>
-
-<ion-content padding>
+<ion-content class="cont">
   <ion-grid>
     <ion-row>
       <ion-col>
         <ion-list>
-          <ion-card *ngFor="let card of cards">
+          <ion-card *ngFor="let card of cards" (click)="viewCard(card.nombre)">
             <ion-card-header>
               {{ card.nombre }}
             </ion-card-header>
             <ion-card-content>
-            <ion-card-title>
-              {{ card.categoria }}
-            </ion-card-title>
+              <p>
+                {{ card.categoria }}
+              </p>
               <p>
                 {{ card.tutor }}
               </p>

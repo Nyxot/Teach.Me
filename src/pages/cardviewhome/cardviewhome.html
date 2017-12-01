@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Card View</ion-title>
+    <ion-title>{{card.nombre}}</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="closeModal()">
         <ion-icon item-right name="ios-close-outline"></ion-icon>
@@ -17,11 +17,8 @@
     <p> {{ card.descripcion }} </p>
   </div>
   <div class="buttons">
-    <button class="sign" ion-button round full (click)="editCard()">
-      Edit Tutoria
-    </button>
-    <button class="sign" style="background-color: red;" ion-button round full (click)="deleteCard()">
-      Delete Tutoria
+    <button class="sign" ion-button round full (click)="takeTutoria()">
+      Take Tutoria
     </button>
   </div>
 </ion-content>

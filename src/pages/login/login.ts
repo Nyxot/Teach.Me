@@ -5,7 +5,8 @@ import {
   LoadingController, 
   Loading, 
   AlertController,
-  MenuController } from 'ionic-angular';
+  MenuController,
+  NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { HomePage } from '../home/home';
@@ -31,7 +32,7 @@ export class LoginPage {
   constructor(public navCtrl: NavController, public authData: AuthProvider, 
     public formBuilder: FormBuilder, public alertCtrl: AlertController,
     public loadingCtrl: LoadingController, public afDatabase: AngularFireDatabase, public afAuth: AngularFireAuth,
-    public menuCtrl: MenuController) {
+    public menuCtrl: MenuController, public navParams: NavParams) {
 
       this.loginForm = formBuilder.group({
         email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
@@ -39,6 +40,7 @@ export class LoginPage {
       });
 
       this.menuCtrl.enable(false, 'menu');
+      //console.log(this.navParams.get('cardName'));
   }
 
   loginUser(){
@@ -51,9 +53,13 @@ export class LoginPage {
         this.afAuth.authState.subscribe(user => {
           firebase.database().ref(`users/${user.uid}/name`).on('value', snapshot=> {
             if(snapshot.val() == ""){
-              this.navCtrl.setRoot(UserinfoPage);
+              this.navCtrl.setRoot(UserinfoPage, {
+                cardName : this.navParams.get('cardName') 
+              });
             } else {
-              this.navCtrl.setRoot(HomePage);
+              this.navCtrl.setRoot(HomePage, {
+                cardName : this.navParams.get('cardName')
+              });
             }
           })
         });

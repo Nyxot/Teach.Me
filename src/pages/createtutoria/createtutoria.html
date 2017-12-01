@@ -1,19 +1,16 @@
 <ion-header>
-
   <ion-navbar color="primary">
     <ion-title>Create Tutoria</ion-title>
     <ion-buttons end>
-        <button ion-button icon-only (click)="closeModal()">
-            <ion-icon item-right name="ios-close-outline"></ion-icon>
-        </button>
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon item-right name="ios-close-outline"></ion-icon>
+      </button>
     </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
-<ion-content padding>
+<ion-content class="cont">
   <form [formGroup]="createForm" (submit)="createCard()" novalidate>
-    
     <ion-item>
       <ion-label stacked>Nombre Tutoria</ion-label>
         <ion-input #nombre formControlName="nombre" type="nombre" placeholder="Name your tutoria"></ion-input>
@@ -24,11 +21,11 @@
     </ion-item>
     <ion-item>
       <ion-label>Categoria</ion-label>
+        <!--cambiar por categorias fijas -->
         <ion-input #categoria formControlName="categoria" type="categoria" placeholder="Tipo"></ion-input>
     </ion-item>
     <button ion-button block type="submit">
       Create
     </button>
-        
   </form>
 </ion-content>

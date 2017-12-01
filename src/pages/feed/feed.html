@@ -1,10 +1,8 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-grid>
       <ion-row>
-        <ion-col>
-          teach.me
-        </ion-col>
+        <ion-col></ion-col>
         <ion-col>
           <button class="log" ion-button icon-left block (click)="logIn()">
             <ion-icon name="log-in"></ion-icon>
@@ -22,29 +20,31 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-list>
-          <ion-card *ngFor="let card of cards">
-            <ion-card-header>
-              {{ card.nombre }}
-            </ion-card-header>
-            <ion-card-content>
-              <ion-card-title>
-                {{ card.categoria }}
-              </ion-card-title>
+<ion-content class="cont">
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-card *ngFor="let card of cards" (click)="viewCard(card.nombre)">
+              <ion-card-header>
+                {{ card.nombre }}
+              </ion-card-header>
+              <ion-card-content>
+                <p>
+                  {{ card.categoria }}
+                </p>
                 <p>
                   {{ card.tutor }}
                 </p>
                 <p>
                   {{ card.descripcion }}
                 </p>
-            </ion-card-content>
-          </ion-card>
-        </ion-list>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+              </ion-card-content>
+            </ion-card>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>

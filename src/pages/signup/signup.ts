@@ -4,13 +4,16 @@ import {
   NavController, 
   LoadingController, 
   Loading, 
-  AlertController } from 'ionic-angular';
+  AlertController,
+  NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
 import { EmailValidator } from '../../validators/email';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
+
+import { LoginPage } from '../login/login';
 
 @IonicPage()
 @Component({
@@ -26,12 +29,15 @@ export class SignupPage {
 
   constructor(public nav: NavController, public authData: AuthProvider, 
     public formBuilder: FormBuilder, public loadingCtrl: LoadingController, 
-    public alertCtrl: AlertController, public afDatabase: AngularFireDatabase, public afAuth: AngularFireAuth) {
+    public alertCtrl: AlertController, public afDatabase: AngularFireDatabase, 
+    public afAuth: AngularFireAuth, public navParams: NavParams) {
 
     this.signupForm = formBuilder.group({
       email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
       password: ['', Validators.compose([Validators.minLength(6), Validators.required])],
     });
+
+    //console.log(this.navParams.get('cardName'));
   }
 
   /*
@@ -58,8 +64,13 @@ export class SignupPage {
           this.afDatabase.object(`users/${user.uid}`).set(this.user)
         });
 
-
-        this.nav.setRoot('LoginPage');
+        if(this.navParams.get("cardName") != null){
+          this.nav.setRoot(LoginPage, {
+            cardName : this.navParams.get('cardName')
+          });
+        }else{
+          this.nav.setRoot(LoginPage);
+        }
       }, (error) => {
         this.loading.dismiss().then( () => {
           var errorMessage: string = error.message;

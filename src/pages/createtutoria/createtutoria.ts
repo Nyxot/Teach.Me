@@ -5,12 +5,13 @@ import { IonicPage,
   Loading, 
   AlertController,
   MenuController, 
-  NavParams } from 'ionic-angular';
+  NavParams,
+  ViewController,
+  App } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import firebase from 'firebase';
-import { FormControl } from '@angular/forms/src/model';
 import { HomePage } from '../home/home';
 
 @IonicPage()
@@ -27,17 +28,42 @@ export class CreatetutoriaPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public formBuilder: FormBuilder, public alertCtrl: AlertController,
     public loadingCtrl: LoadingController, public afDatabase: AngularFireDatabase, 
-    public afAuth: AngularFireAuth, public menuCtrl: MenuController) {
+    public afAuth: AngularFireAuth, public menuCtrl: MenuController,
+    public viewCtrl: ViewController, public app: App) {
+    
+    //console.log(this.navParams.get('cardID'));
+    if(!this.navParams.get('cardID')){
+      //console.log("no cardId");
+      this.createForm = formBuilder.group({
+        nombre: ['', Validators.compose([Validators.minLength(6), Validators.required])],
+        descrip: ['', Validators.compose([Validators.minLength(20), Validators.required])],
+        categoria: ['', Validators.compose([Validators.minLength(6), Validators.required])]
+      });
 
-    this.createForm = formBuilder.group({
-      nombre: ['', Validators.compose([Validators.minLength(6), Validators.required])],
-      descrip: ['', Validators.compose([Validators.minLength(20), Validators.required])],
-      categoria: ['', Validators.compose([Validators.minLength(6), Validators.required])]
-    });
+    }else{
+
+      //console.log("cardId");
+
+      firebase.database().ref('tutorias/' + this.navParams.get('cardID') ).on('value', data =>{
+        if(data.val() != null ){
+          //console.log(data.val().tutoriaName);
+          //console.log(data.val().descripcion);
+          //console.log(data.val().categoria);
+
+          this.createForm = formBuilder.group({
+            nombre: [data.val().tutoriaName, Validators.compose([Validators.minLength(6), Validators.required])],
+            descrip: [data.val().descripcion, Validators.compose([Validators.minLength(20), Validators.required])],
+            categoria: [data.val().categoria, Validators.compose([Validators.minLength(6), Validators.required])]
+          });
+        }
+
+      });
+    
+    }
   }
 
   closeModal() {
-    this.navCtrl.pop();
+    this.viewCtrl.dismiss();
   }
 
   createCard(){
@@ -56,9 +82,20 @@ export class CreatetutoriaPage {
         descripcion: value.descrip,
         categoria: value.categoria
       });
+
+      if(this.navParams.get('cardID')){
+        firebase.database().ref('tutorias/' + this.navParams.get('cardID') ).on('value', data =>{
+          if(data.val() != null ){
+            if(this.navParams.get('cardID') != this.uid +'@'+ value.nombre){
+              firebase.database().ref('tutorias/'+this.navParams.get('cardID')).remove();
+            }
+          }
+        });
+      }
     
-      this.navCtrl.setRoot(HomePage);
-      this.navCtrl.popToRoot();
+      //this.navCtrl.popToRoot();
+      this.viewCtrl.dismiss();
+      this.app.getRootNav().setRoot(HomePage);
     }
   }
 }

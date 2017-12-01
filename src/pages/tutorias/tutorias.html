@@ -1,14 +1,9 @@
 <ion-content class="cont">
-  <div class="buttons">
-    <button class="sign" ion-button round full (click)="createTutoria()">
-      Create Tutoria
-    </button>
-  </div>
   <ion-grid>
     <ion-row>
       <ion-col>
         <ion-list>
-          <ion-card *ngFor="let card of cards" (click)="viewCard(card.nombre)">
+          <ion-card *ngFor="let card of cards" (click)="viewCard(card.tutoradoID)">
             <ion-card-header>
               {{ card.nombre }}
             </ion-card-header>
@@ -17,10 +12,10 @@
               {{ card.categoria }}
             </p>
               <p>
-                {{ card.tutor }}
+                {{ card.tutorado }}
               </p>
               <p>
-                {{ card.descripcion }}
+                {{ card.email }}
               </p>
             </ion-card-content>
           </ion-card>
