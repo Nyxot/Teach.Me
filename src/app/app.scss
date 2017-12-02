@@ -14,7 +14,28 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+ion-navbar.toolbar {
+  .bar-button {
+    color: color($colors, dark);
+  }
+
+  .toolbar-title-md {
+    color: color($colors, dark);
+  }
+
+  .button-md {
+    color: color($colors, dark);
+    background: color($colors, secondary);
+  }
+}
+
+.cont {
+  background: color($colors, bckground);
+}
+
 .sidemenu {
+  background: color($colors, light);
 
   .button-block {
     display: block;
@@ -22,6 +43,9 @@
     width: 95%;
     contain: strict;
     margin-left: 2%;
-}
+  }
 
+  .item-md {
+    color: color($colors, dark);
+  }
 }

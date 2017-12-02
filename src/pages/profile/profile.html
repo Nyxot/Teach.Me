@@ -5,13 +5,12 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content class="cont">
   <div class="profileImg">
     <ion-grid>
       <ion-row>
         <ion-col>
-          <img class="img-responsive" src="{{ myPhotoURL }}" />
+          <!--<img class="img-responsive" src="{{ myPhotoURL }}"/>-->
         </ion-col>
         <ion-col>
           <button ion-button block type="button" (click)="selectPhoto()">
@@ -21,7 +20,6 @@
       </ion-row>
     </ion-grid>
   </div>
-
   <div class="profileContent">
     <ion-grid>
       <ion-row>

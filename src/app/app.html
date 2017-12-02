@@ -1,12 +1,16 @@
 <ion-menu id="menu" [content]="content">
+  <!--<img src="assets/img/wallpaper.png"/>-->
   <ion-content class="sidemenu">
+    <div>
+      <img src="assets/img/wallpaper.png"/>
+    </div>
     <ion-list class="mainList">
       <button ion-item no-lines *ngFor="let page of pages" (click)="openPage(page)" menuClose>
         <ion-icon name="{{ page.icon }}" item-left></ion-icon>
         {{ page.name }}
       </button>
     </ion-list>
-    <button ion-button block outline color="danger" (click)="logoutUser()">
+    <button ion-button block (click)="logoutUser()">
       <ion-icon name="log-out"></ion-icon>
       Log Out
     </button>

@@ -1,9 +1,13 @@
 <ion-header>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 75aaf1687ffeddbb3f8ee62e02ef9aeef501057b
   <ion-navbar color="primary">
     <ion-title>{{card.nombre}}</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="closeModal()">
+<<<<<<< HEAD
           <ion-icon item-right name="ios-close-outline"></ion-icon>
       </button>
     </ion-buttons>
@@ -23,4 +27,24 @@
           Take Tutoria
         </button>
     </div>
+=======
+        <ion-icon item-right name="ios-close-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="cont">
+  <div>
+    <h1>{{ card.nombre }}</h1>
+    <p>{{ card.categoria }}</p>
+    <p>{{ card.tutor }}</p>
+    <p> {{ card.descripcion }} </p>
+  </div>
+  <div class="buttons">
+    <button class="sign" ion-button round full (click)="takeTutoria()">
+      Take Tutoria
+    </button>
+  </div>
+>>>>>>> 75aaf1687ffeddbb3f8ee62e02ef9aeef501057b
 </ion-content>
