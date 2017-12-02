@@ -28,7 +28,7 @@ export class CardsPage {
 
         this.cards.push(
           {
-           nombre : datoTutoria.tutoriaName,
+            nombre : datoTutoria.tutoriaName,
             tutor : datoTutoria.tutorName,
             descripcion : datoTutoria.descripcion,
             categoria : datoTutoria.categoria

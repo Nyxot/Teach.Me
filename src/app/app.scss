@@ -49,3 +49,9 @@ ion-navbar.toolbar {
     color: color($colors, dark);
   }
 }
+
+.cards {
+  .input-wrapper {
+    margin-bottom: -15px;
+  }
+}
