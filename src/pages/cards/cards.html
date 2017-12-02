@@ -3,20 +3,26 @@
     <ion-row>
       <ion-col>
         <ion-list>
-          <ion-card *ngFor="let card of cards" (click)="viewCard(card.nombre)">
-            <ion-card-header>
-              {{ card.nombre }}
-            </ion-card-header>
+          <ion-card class="cards" *ngFor="let card of cards" (click)="viewCard(card.nombre)">
+            <ion-item>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-2>
+                    <ion-avatar>
+                      <img src="assets/img/tutor.png"/>
+                    </ion-avatar>
+                  </ion-col>
+                  <ion-col col-10>
+                    <h2>{{ card.tutor }}</h2>
+                    <p>{{ card.categoria }}</p>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-item>
+            <img src="assets/img/wallpaper.png"/>
             <ion-card-content>
-              <p>
-                {{ card.categoria }}
-              </p>
-              <p>
-                {{ card.tutor }}
-              </p>
-              <p>
-                {{ card.descripcion }}
-              </p>
+              <h3>{{ card.nombre }}</h3>
+              <p>{{ card.descripcion }}</p>
             </ion-card-content>
           </ion-card>
         </ion-list>
