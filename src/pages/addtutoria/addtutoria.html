@@ -9,7 +9,6 @@
   <div class="float-button">
     <span class="height-fix">
       <a class="content" (click)="createTutoria()">
-        <!--<i class="ion-ios-arrow-up"> </i>-->
         <ion-icon name="md-add"></ion-icon>
       </a>
     </span>
@@ -18,20 +17,26 @@
     <ion-row>
       <ion-col>
         <ion-list>
-          <ion-card *ngFor="let card of cards" (click)="viewCard(card.nombre)">
-            <ion-card-header>
-              {{ card.nombre }}
-            </ion-card-header>
+          <ion-card class="cards" *ngFor="let card of cards" (click)="viewCard(card.nombre)">
+            <ion-item>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-2>
+                    <ion-avatar>
+                      <img src="assets/img/tutor.png"/>
+                    </ion-avatar>
+                  </ion-col>
+                  <ion-col col-10>
+                    <h2>{{ card.tutor }}</h2>
+                    <p>{{ card.nombre }}</p>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-item>
+            <img src="assets/img/wallpaper.png"/>
             <ion-card-content>
-            <p>
-              {{ card.categoria }}
-            </p>
-              <p>
-                {{ card.tutor }}
-              </p>
-              <p>
-                {{ card.descripcion }}
-              </p>
+              <p>{{ card.descripcion }}</p>
+              <h6>{{ card.categoria }}</h6>
             </ion-card-content>
           </ion-card>
         </ion-list>

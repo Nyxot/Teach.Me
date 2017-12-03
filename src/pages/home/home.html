@@ -8,22 +8,10 @@
 </ion-header>
 
 <ion-content class="cont">
-    <ion-tabs #paymentTabs [selectedIndex]="tabsIndex" >
-        <ion-tab [root]="cardsRoot" tabTitle="Home" tabIcon="md-home"></ion-tab>
-        <ion-tab [show]="shouldHide" [root]="addRoot" tabTitle="Manage Courses" tabIcon="md-book"></ion-tab>
-        <ion-tab [show]="shouldHide" [root]="tutoriasRoot" tabTitle="Tutorias" tabIcon="md-bookmarks" ></ion-tab>
-        <ion-tab [root]="tutoriastake" tabTitle="Tutorias Taked" tabIcon="bookmarks"></ion-tab>
-    </ion-tabs>
-  <!--
-  <ion-grid class="content">
-    <ion-row>
-      <ion-col>
-        <ion-card>
-          <img src="{{ myPhotoURL }}"/>
-          <div class="card-title">Programación</div>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  -->
+  <ion-tabs #paymentTabs [selectedIndex]="tabsIndex" >
+    <ion-tab [root]="cardsRoot" tabTitle="Home" tabIcon="md-home"></ion-tab>
+    <ion-tab [show]="shouldHide" [root]="addRoot" tabTitle="Manage Courses" tabIcon="md-book"></ion-tab>
+    <ion-tab [show]="shouldHide" [root]="tutoriasRoot" tabTitle="Tutorias" tabIcon="md-bookmarks" ></ion-tab>
+    <ion-tab [root]="tutoriastake" tabTitle="Tutorias Taked" tabIcon="bookmarks"></ion-tab>
+  </ion-tabs>
 </ion-content>

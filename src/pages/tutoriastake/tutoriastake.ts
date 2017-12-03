@@ -26,23 +26,18 @@ export class TutoriastakePage {
       for(var i = 0; i < keys.length; i++) {
         var k = keys[i];
         var datoTutoria = datos[k];
-        
-        //for(var j in datoTutoria){
-          //console.log(datoTutoria[j]);
-          if(datoTutoria.completada == false){
-            this.cards.push(
-              {
-                nombre : datoTutoria.tutoriaName,
-                tutor : datoTutoria.tutorName,
-                email : datoTutoria.tutorEmail,
-                categoria : datoTutoria.categoria,
-                tutorID : datoTutoria.tutorID
-              }
-            );
-          }
-        //}
-        //console.log(this.cards);
-      
+
+        if(datoTutoria.completada == false){
+          this.cards.push(
+            {
+              nombre : datoTutoria.tutoriaName,
+              tutor : datoTutoria.tutorName,
+              email : datoTutoria.tutorEmail,
+              categoria : datoTutoria.categoria,
+              tutorID : datoTutoria.tutorID
+            }
+          );
+        }
       }
     }
     }, error =>{

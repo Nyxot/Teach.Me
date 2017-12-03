@@ -3,20 +3,37 @@
     <ion-row>
       <ion-col>
         <ion-list>
-          <ion-card *ngFor="let card of cards" (click)="viewCard(card.tutorID)">
+          <ion-card class="card-tut" *ngFor="let card of cards" (click)="viewCard(card.tutorID)">
             <ion-card-header>
-              {{ card.nombre }}
+              <h2>{{ card.nombre }}</h2>
             </ion-card-header>
             <ion-card-content>
-              <p>
-                {{ card.categoria }}
-              </p>
-              <p>
-                {{ card.tutor }}
-              </p>
-              <p>
-                {{ card.email }}
-              </p>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-4>
+                    <h3>Tutor:</h3>
+                  </ion-col>
+                  <ion-col>
+                    <h3>{{ card.tutor }}</h3>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col col-4>
+                    <h3>email:</h3>
+                  </ion-col>
+                  <ion-col>
+                    <h3>{{ card.email }}</h3>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col col-4>
+                    <h3>Categoría:</h3>
+                  </ion-col>
+                  <ion-col>
+                    <h3>{{ card.categoria }}</h3>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
             </ion-card-content>
           </ion-card>
         </ion-list>
