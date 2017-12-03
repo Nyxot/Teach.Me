@@ -52,6 +52,20 @@ ion-navbar.toolbar {
 
 .cards {
   .input-wrapper {
-    margin-bottom: -15px;
+    margin-bottom: -18px;
+    margin-top: -10px;
+    margin-left: -5px;
+    margin-right: -50px;
+  }
+
+  p {
+    margin-bottom: 6px;
+    text-align: left;
+  }
+
+  h6 {
+    padding-top: 10px;
+    border-top: 1px solid #BDBDBD;
+    text-align: center;
   }
 }

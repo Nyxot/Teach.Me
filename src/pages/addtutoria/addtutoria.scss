@@ -2,7 +2,7 @@ page-addtutoria {
   .float-button {
     
    background-color: color($colors, secondary);
-   opacity: 0.9;
+   //opacity: 0.9;
    color: white;
    border-radius: 50%;
    /*border-radius:15% 0 0 0;*/
@@ -28,7 +28,7 @@ page-addtutoria {
      width: 100%;
      text-align: center;
      margin-top: -26px;
-     color: white;
+     color: color($colors, light);
 
      ion-icon {
        font-size: 30px;
