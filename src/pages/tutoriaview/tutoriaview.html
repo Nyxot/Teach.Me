@@ -17,8 +17,14 @@
     <p> {{ card.tutoradoEmail }} </p>
   </div>
   <div class="buttons">
-    <button class="sign" ion-button round full (click)="finishTutoria()">
+    <button [hidden]="start" class="sign" ion-button round full (click)="startTutoria()">
+      Start Tutoria
+    </button>
+    <button [hidden]="finish" class="sign" ion-button round full (click)="finishTutoria()">
       Finish Tutoria
     </button>
+  </div>
+  <div [hidden]="temporizador">
+    <p>Tiempo restante : {{tiempo.horas}}</p>
   </div>
 </ion-content>

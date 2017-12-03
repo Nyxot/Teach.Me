@@ -80,7 +80,8 @@ export class CreatetutoriaPage {
         tutorName: this.nombre,
         tutoriaName: value.nombre,
         descripcion: value.descrip,
-        categoria: value.categoria
+        categoria: value.categoria,
+        email: firebase.auth().currentUser.email
       });
 
       if(this.navParams.get('cardID')){

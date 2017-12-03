@@ -27,17 +27,18 @@ export class TutoriastakePage {
         var k = keys[i];
         var datoTutoria = datos[k];
 
-        if(datoTutoria.completada == false){
+        //if(datoTutoria.completada == false){
           this.cards.push(
             {
               nombre : datoTutoria.tutoriaName,
               tutor : datoTutoria.tutorName,
               email : datoTutoria.tutorEmail,
               categoria : datoTutoria.categoria,
-              tutorID : datoTutoria.tutorID
+              tutorID : datoTutoria.tutorID,
+              completada : datoTutoria.completada
             }
           );
-        }
+        //}
       }
     }
     }, error =>{
@@ -46,7 +47,8 @@ export class TutoriastakePage {
           nombre : "",
           tutor : "",
           descripcion : "",
-          categoria : ""
+          categoria : "",
+          completada : ""
         }
       );
     });

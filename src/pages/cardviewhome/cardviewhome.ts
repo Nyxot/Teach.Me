@@ -8,7 +8,7 @@ import firebase from "firebase";
   templateUrl: 'cardviewhome.html',
 })
 export class CardviewhomePage {
-  card = {nombre: "", categoria: "", tutor: "", descripcion: "", tutorID: ""};
+  card = {nombre: "", categoria: "", tutor: "", descripcion: "", tutorID: "", tutorEmail:""};
   idCard: any;
   uid = firebase.auth().currentUser.uid;
   uemail = firebase.auth().currentUser.email;
@@ -35,6 +35,7 @@ export class CardviewhomePage {
           this.card.categoria = datoTutoria.categoria;
           this.card.tutor = datoTutoria.tutorName;
           this.card.descripcion = datoTutoria.descripcion;
+          this.card.tutorEmail = datoTutoria.email;
         }
         //console.log(this.card);
         //console.log(this.idCard);
@@ -47,6 +48,7 @@ export class CardviewhomePage {
       this.card.categoria = "";
       this.card.tutor = "";
       this.card.descripcion = "";
+      this.card.tutorEmail = "";
     });
   }
 
@@ -61,6 +63,7 @@ export class CardviewhomePage {
       tutoriaName : this.card.nombre,
       categoria : this.card.categoria,
       descripcion : this.card.descripcion,
+      tutorEmail : this.card.tutorEmail,
       completada : false
     });
 
