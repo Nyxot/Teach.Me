@@ -1,38 +1,37 @@
 page-addtutoria {
   .float-button {
+    background-color: color($colors, secondary);
+    //opacity: 0.9;
+    box-shadow: 1px 5px 10px #888888;
+    color: white;
+    border-radius: 50%;
+    //border-radius:15% 0 0 0;
+    width: 30px;
+    padding: 25px;
+    font-size: 40px;
+    position: fixed;
+    bottom: 15%; //Adjust height
+    right: 5%; //Adjust position
+    z-index: 1000;
+  }
+  
+  .float-button .height_fix {
+    margin-top: 100%;
+    //border: 1px solid red;
+  }
+  
+  .float-button .content {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    margin-top: -26px;
+    color: color($colors, light);
     
-   background-color: color($colors, secondary);
-   //opacity: 0.9;
-   color: white;
-   border-radius: 50%;
-   /*border-radius:15% 0 0 0;*/
-   width: 30px;
-   padding: 25px;
-   font-size: 40px;
-   position: fixed;
-   bottom: 15%; /* Adjust height */
-   right: 5%; /* Adjust position */
-   z-index: 1000;
-   }
-    
-   .float-button .height_fix {
-     margin-top: 100%;
-     /*border: 1px solid red;*/
-   }
-    
-   .float-button .content {
-     position: absolute;
-     left: 0;
-     top: 50%;
-     height: 100%;
-     width: 100%;
-     text-align: center;
-     margin-top: -26px;
-     color: color($colors, light);
-
-     ion-icon {
-       font-size: 30px;
-     }
-
-   }
+    ion-icon {
+      font-size: 30px;
+    }
+  }
 }
