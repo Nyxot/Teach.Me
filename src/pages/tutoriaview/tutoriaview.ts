@@ -50,8 +50,15 @@ export class TutoriaviewPage {
               this.start = true;
               this.finish = false;
               var start = parseInt(datoTutoria[j].startTime);
+              var end = start + 2;
+              var now = parseInt(this.localdatetime);
               console.log(start);
-              this.tiempo.horas = (2 - start).toString();
+              console.log(end);
+              if(now >= end){
+                this.tiempo.horas = "0";
+              }else{
+                this.tiempo.horas = (end - now).toString();
+              }
               console.log(this.tiempo.horas);
               this.temporizador = false;
             }
@@ -85,14 +92,21 @@ export class TutoriaviewPage {
     this.card.tutoradoID).on('value', data =>{
       var datos = data.val();
       var start = parseInt(datos.startTime);
-      //this.tiempo.horas = (parseInt(localdatetime) - start).toString();
-      this.tiempo.horas = (2 - start).toString();
+      var end = start + 2;
+      var now = parseInt(this.localdatetime);
+      console.log(start);
+      console.log(end);
+      if(now >= end){
+        this.tiempo.horas = "0";
+      }else{
+        this.tiempo.horas = (end - now).toString();
+      }
     })
     this.temporizador = false;
   }
 
   finishTutoria(){
-    if(this.tiempo.horas == "0"){
+    if(parseInt(this.tiempo.horas) <= 0){
       firebase.database().ref('tutoriasSolicitadas/'+this.uid+'/'+this.idCard+'/'+
       this.card.tutoradoID).update({
         completada : true
