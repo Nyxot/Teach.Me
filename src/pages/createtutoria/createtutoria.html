@@ -12,17 +12,17 @@
 <ion-content class="cont">
   <form [formGroup]="createForm" (submit)="createCard()" novalidate>
     <ion-item>
-      <ion-label stacked>Nombre Tutoria</ion-label>
-        <ion-input #nombre formControlName="nombre" type="nombre" placeholder="Name your tutoria"></ion-input>
+      <ion-label floating>Nombre Tutoria</ion-label>
+        <ion-input #nombre formControlName="nombre" type="nombre"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label stacked>Descripcion</ion-label>
-        <ion-textarea #descrip formControlName="descrip" type="descrip" placeholder="Description of your tutoria"></ion-textarea>
+      <ion-label floating>Descripcion</ion-label>
+        <ion-textarea #descrip formControlName="descrip" type="descrip"></ion-textarea>
     </ion-item>
     <ion-item>
-      <ion-label>Categoria</ion-label>
+      <ion-label floating>Categoria</ion-label>
         <!--cambiar por categorias fijas -->
-        <ion-input #categoria formControlName="categoria" type="categoria" placeholder="Tipo"></ion-input>
+        <ion-input #categoria formControlName="categoria" type="categoria"></ion-input>
     </ion-item>
     <button ion-button block type="submit">
       Create

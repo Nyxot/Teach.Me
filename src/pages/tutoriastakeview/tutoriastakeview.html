@@ -10,16 +10,57 @@
 </ion-header>
 
 <ion-content class="cont">
-  <div>
-    <h1> {{ card.nombre }} </h1>
-    <p> {{ card.categoria }} </p>
-    <p> {{ card.tutorName }} </p>
-    <p> {{ card.tutorEmail }} </p>
-    <p> {{ card.completada }}</p>
-  </div>
-  <div class="buttons">
-    <button [hidden]="finish" class="sign" ion-button round full (click)="finishTutoria()">
-      Finish Tutoria
-    </button>
-  </div>
+  <ion-card>
+    <img src="assets/img/wallpaper.png"/>
+    <ion-item>
+      <ion-grid class="profileUser">
+        <ion-row>
+          <ion-col col-2>
+            <ion-avatar>
+              <img src="assets/img/tutor.png"/>
+            </ion-avatar>
+          </ion-col>
+          <ion-col col-10>
+            <h2>{{ card.tutorName }}</h2>
+            <p>{{ card.tutorEmail }}</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <h3>Tutoría:</h3>
+          </ion-col>
+          <ion-col>
+            <h3>{{ card.nombre }}</h3>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-4>
+            <h3>Categoría:</h3>
+          </ion-col>
+          <ion-col>
+            <h3>{{ card.categoria }}</h3>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-4>
+            <h3>Completada:</h3>
+          </ion-col>
+          <ion-col>
+            <h3>{{ card.completada }}</h3>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <button [hidden]="finish" class="sign" ion-button round full (click)="finishTutoria()">
+              Finish Tutoria
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
