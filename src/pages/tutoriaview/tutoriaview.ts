@@ -19,6 +19,7 @@ export class TutoriaviewPage {
   start = false;
   finish = false;
   temporizador = true;
+  tempo = true;
   local = new Date();
   localdatetime = this.local.getHours() + ":" + this.local.getMinutes() + ":" + this.local.getSeconds();
 
@@ -114,7 +115,7 @@ export class TutoriaviewPage {
       this.viewCtrl.dismiss();
       this.app.getRootNav().setRoot(HomePage);
     }else{
-      let alert = this.alertCtrl.create({
+      /*let alert = this.alertCtrl.create({
         message : "Aun queda tiempo de tutoria",
         buttons : [
           {
@@ -124,6 +125,8 @@ export class TutoriaviewPage {
         ]
       });
       alert.present();
+      */
+      this.tempo = false;
     }
 
     console.log("finish");

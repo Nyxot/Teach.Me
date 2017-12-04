@@ -58,6 +58,13 @@
             <p>Tiempo restante : {{ tiempo.horas }}</p>
           </ion-col>
         </ion-row>
+        <ion-row>
+          <ion-col>
+            <h1 [hidden]="tempo" style="text-align:center; color:red">
+              Aun queda tiempo
+            </h1>
+          </ion-col>
+        </ion-row>
       </ion-grid>
     </ion-card-content>
   </ion-card>
