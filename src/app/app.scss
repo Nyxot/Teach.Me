@@ -17,16 +17,16 @@
 
 ion-navbar.toolbar {
   .bar-button {
-    color: color($colors, dark);
+    color: color($colors, light);
   }
 
   .toolbar-title-md {
-    color: color($colors, dark);
+    color: color($colors, light);
   }
 
   .button-md {
     color: color($colors, dark);
-    background: color($colors, secondary);
+    background: color($colors, pLight);
   }
 }
 
